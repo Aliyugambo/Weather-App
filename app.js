@@ -1,4 +1,4 @@
-// const iconElement = document.querySelector('.weather-icon');
+const iconElement = document.querySelector('#weather-icon');
 const locationIcon = document.querySelector('.location-icon');
 const tempElement = document.querySelector('#temperature-value');
 const descElement = document.querySelector('#temperature-discription');
@@ -67,7 +67,7 @@ function getSearchweather(city){
         .then(function(data){
             weather.temperature.value=Math.round(data.main.temp -KELVIN);
             weather.description=data.weather[0].description;
-            // weather.iconId= data.weather[0].icon;
+            weather.iconId= data.weather[0].icon;
             weather.city= data.name;
             weather.date=data.date;
             weather.country= data.sys.country;
@@ -88,7 +88,7 @@ function getWeather(latitude, longitude){
         .then(function(data){
             weather.temperature.value=Math.round(data.main.temp -KELVIN);
             weather.description=data.weather[0].description;
-            // weather.iconId= data.weather[0].icon;
+            weather.iconId= data.weather[0].icon;
             weather.city= data.name;
            
             weather.country= data.sys.country;
@@ -99,7 +99,7 @@ function getWeather(latitude, longitude){
 }
 
 function displayWeather(){
-    // iconElement.innerHTML=`<img src="icons/${weather.iconId}.png"/>`;
+    iconElement.innerHTML=`<img src="icons/${weather.iconId}.png"/>`;
     tempElement.innerHTML= `${weather.temperature.value} <span class="unit">c&#176;</span>`;
     descElement.innerHTML= weather.description;
     locationElement.innerHTML= `${weather.city}, ${weather.country}`;
