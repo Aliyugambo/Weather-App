@@ -104,6 +104,8 @@ function displayWeather(){
     descElement.innerHTML= weather.description;
     locationElement.innerHTML= `${weather.city}, ${weather.country}`;
     let date = new Date();
-var current_date = date.toDateString();
-document.getElementById('current-date').innerHTML = `<span>${current_date}</span>`;
+let current_date = date.toDateString();
+let current_time2 = date.toLocaleTimeString()
+let dateTime = current_date+' '+current_time2;
+document.getElementById('current-date').innerHTML = `<span>${dateTime}</span>`;
 }
