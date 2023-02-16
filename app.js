@@ -89,8 +89,8 @@ function getWeather(latitude, longitude){
             weather.temperature.value=Math.round(data.main.temp -KELVIN);
             weather.description=data.weather[0].description;
             weather.iconId= data.weather[0].icon;
+            weather.imageURL = "http://openweathermap.org/img/wn/"+weather.iconId +"@2x.png";
             weather.city= data.name;
-           
             weather.country= data.sys.country;
         })
         .then(function(){
@@ -99,7 +99,7 @@ function getWeather(latitude, longitude){
 }
 
 function displayWeather(){
-    iconElement.innerHTML=`<img src="icons/${weather.iconId}.png"/>`;
+    iconElement.innerHTML=`<img src="${weather.imageURL}"/>`;
     tempElement.innerHTML= `${weather.temperature.value} <span class="unit">c&#176;</span>`;
     descElement.innerHTML= weather.description;
     locationElement.innerHTML= `${weather.city}, ${weather.country}`;
